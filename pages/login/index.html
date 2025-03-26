@@ -9,14 +9,9 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="../css/styleInicial.css"
+      href="../../css/main.css"
     />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="../css/styleEvents.css"
-      />
+
       <link
       href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Kadwa:wght@400;700&display=swap"
       rel="stylesheet"
@@ -99,7 +94,7 @@
           document.querySelector(".google-loading").style.display = "none";
           showToast("Login com Google bem-sucedido (simulado)!", "success");
           
-              window.location.href = "selectType.html";
+              window.location.href = "../dashboard/index.html";
             
         }, 2000);
       }
@@ -126,7 +121,7 @@
             showToast("Login bem-sucedido!", "success");
             // Redireciona para listProjects.html após 1 segundo
             setTimeout(() => {
-              window.location.href = "selectType.html";
+              window.location.href = "../dashboard/index.html";
             }, 1000);
           } else {
             showToast("Senha incorreta!", "error");

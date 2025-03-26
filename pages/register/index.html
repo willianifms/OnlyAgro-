@@ -5,28 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Registrar - OnlyFreelas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/main.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <link rel="shortcut icon" href="./assets/img/favico.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/img/favico.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Kadwa:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
     <section class="container">
-        <h1>Only<span>Agro</span></h1>
+        <h1>Only<span>Freelas</span></h1>
         <form onsubmit="registerUser(event)">
-            <a href="#" class="google-button" onclick="loginWithGoogle()">
+            <a href="#" class="google-button" onclick="registerWithGoogle()">
                 <img src="./assets/icons/iconGoogle.png" alt="Google logo" />
-                Continue com Google
+                Registrar com Google
                 <div class="loading google-loading"></div>
             </a>
+            <div class="input-container">
+                <label for="name">Nome Completo</label>
+                <input type="text" id="name" placeholder="John Doe" />
+            </div>
+            <div class="input-container">
+                <label for="dob">Data de Nascimento</label>
+                <input type="date" id="dob" />
+            </div>
+            <div class="input-container">
+                <label for="phone">Número de Celular</label>
+                <input type="tel" id="phone" placeholder="+55 (XX) 9XXXX-XXXX" />
+            </div>
             <div class="input-container">
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="johndoe@email.com" />
             </div>
-
             <div class="input-container">
                 <label for="password">Senha</label>
                 <input type="password" id="password" placeholder="********" />
@@ -40,10 +51,10 @@
         </form>
         <section class="infos">
             <div>
-                Ao se inscrever no OnlyFreelas, significa que você concorda com nossa Política de Privacidade e Termos de Serviço
+                Ao se registrar no OnlyFreelas, você concorda com nossa Política de Privacidade e Termos de Serviço
             </div>
             <div class="jaMembro">
-                Já é membro?
+                Já possui uma conta?
                 <a href="./login.html">
                     <span class="conecte">CONECTE-SE</span>
                 </a>
@@ -54,12 +65,45 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        function loginWithGoogle() {
+        function registerWithGoogle() {
             document.querySelector(".google-loading").style.display = "block";
             setTimeout(() => {
                 document.querySelector(".google-loading").style.display = "none";
-                showToast("Login com Google bem-sucedido (simulado)!", "success");
+                showToast("Registro com Google bem-sucedido (simulado)!", "success");
                 window.location.href = "selectType.html";
+            }, 2000);
+        }
+
+        function registerUser(event) {
+            event.preventDefault(); // Evita recarregar a página
+
+            const name = document.getElementById("name").value;
+            const dob = document.getElementById("dob").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (!name || !dob || !phone || !email || !password) {
+                showToast("Por favor, preencha todos os campos!", "error");
+                return;
+            }
+
+            showLoadingSpinner(true);
+
+            // Simula o registro
+            setTimeout(() => {
+                localStorage.setItem("userName", name);
+                localStorage.setItem("userDob", dob);
+                localStorage.setItem("userPhone", phone);
+                localStorage.setItem("userEmail", email);
+                localStorage.setItem("userPassword", password);
+
+                showLoadingSpinner(false);
+                showToast("Registro bem-sucedido!", "success");
+
+                setTimeout(() => {
+                    window.location.href = "../login/index.html";
+                }, 3000);
             }, 2000);
         }
 
@@ -94,33 +138,6 @@
             } else {
                 spinner.style.display = "none";
             }
-        }
-
-        function registerUser(event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
-
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            if (!email || !password) {
-                showToast("Por favor, preencha todos os campos!", "error");
-                return;
-            }
-
-            showLoadingSpinner(true);
-
-            // Simula um atraso no registro (exemplo de carregamento)
-            setTimeout(() => {
-                localStorage.setItem("userEmail", email);
-                localStorage.setItem("userPassword", password);
-
-                showLoadingSpinner(false);
-                showToast("Registro bem-sucedido!", "success");
-
-                setTimeout(() => {
-                    window.location.href = "../pages/login.html";
-                }, 3000);
-            }, 2000); // Simula 2 segundos de carregamento
         }
     </script>
 </body>
