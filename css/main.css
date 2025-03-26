@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Kadwa", sans-serif;
+    background-image: url("../assets/img/fundoInicial.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  h1 {
+    font-size: 6rem;
+    font-weight: 500;
+  }
+  
+  h1 > span {
+    color: #00aff0;
+  }
+  
+  .google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f9fe;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #5f6368;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    width: 280px;
+    height: 48px;
+  }
+  
+  .google-button:hover {
+    background-color: #edf2f7;
+  }
+  
+  .google-button img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .input-container {
+    margin-top: 20px;
+    position: relative;
+    width: 300px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-container label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #757575;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  
+  .input-container input {
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 14px;
+    padding: 20px 10px 10px 10px;
+    color: #333;
+    outline: none;
+  }
+  
+  .btn-cadastrar {
+    width: 300px;
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #00a6e8;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+  
+  .btn-cadastrar:hover {
+    background-color: #008dc4;
+  }
+  
+  .btn-cadastrar span {
+    font-weight: 500;
+    margin-left: 15px;
+    font-size: 20px;
+  }
+  
+  .infos {
+    font-size: 10px;
+    color: #757575;
+    text-align: justify;
+    width: 310px;
+    padding: 10px;
+  }
+  
+  .jaMembro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .infos .jaMembro span {
+    color: #0b1320;
+    cursor: pointer;
+  }
+  
+  .infos .jaMembro span:hover {
+    text-decoration: underline;
+  }
+  
+  .infos .jaMembro a {
+    text-decoration: none;
+  }
+  
+  .conecte{
+    font-size: 18px;
+  }
+
+  
+.loading {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top: 2px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Estilos do Toast */
+  .toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  .toast {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    max-width: 300px;
+    display: none;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .toast.success {
+    background-color: #4caf50;
+  }
+
+  .toast.error {
+    background-color: #f44336;
+  }
+
+  .toast.show {
+    display: block;
+    opacity: 1;
+  }
